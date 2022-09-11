@@ -21,12 +21,19 @@ code {
 .header {
     text-align: center;
     font-weight: 400;
-    color: #fff;
-    background: blueviolet;
+    color: rgb(0, 0, 0);
+    background: #f2d1d1;
     font-size: 27px;
     padding: 5px 0;
+    font-family: "sans-serif";
 }
 
+.output
+{
+    margin: 20px;
+    
+
+}
 .inputHolder {
     margin: 15px 0;
 }
@@ -40,8 +47,8 @@ code {
     align-items: center;
     margin-bottom: 10px;
 
-    @media (max-width: 800px) {
-        flex-direction: column;
+    @media (max-width: 200px) {
+        flex-direction: row;
     }
 }
 
@@ -50,14 +57,14 @@ code {
     display: flex; 
 
     input[type='text'] {
-        max-width: 400px;
-        width: 100%;
+        max-width: 100px;
+        width: 50%;
         padding: 5px 10px;
         font-size: 16px;
-        border-radius: 0;
+        border-radius: 5px;
         display: inline-block;
         border: 1px solid #222;
-        outline: none;
+        outline :none;
     }
 
     .uploadInput { 
@@ -80,7 +87,7 @@ code {
         color: #fff;
         display: inline-block;
         border: 0;
-        border-radius: 0;
+        border-radius: 5px;
         cursor: pointer;
         outline: none;
     }
@@ -90,11 +97,11 @@ code {
     width: 60%;
     display: block;
     flex: 0 0 60%;
-    max-width: 900px;
+    max-width: 500px;
     height: 70vmin;
 
-    @media (max-width: 800px) {
-        width: 100%;
+    @media (max-width: 700px) {
+        width: 50%;
         height: auto;
         margin-bottom: 15px;
     }
@@ -155,22 +162,23 @@ code {
 .button {
     padding: 12px 17px;
     font-size: 18px;
-    background: blueviolet;
+    background: black;
     color: #fff;
     display: inline-block;
     border: 0;
-    border-radius: 0;
+    border-radius: 5px;
     cursor: pointer;
     outline: none;
+    margin-bottom: 25px;
 }
 
 .recentPredictions {
     margin: 40px 0 0;
-    background: #dac2ff;
-    padding: 10px;
+    background: #f2d1d1;
+    padding: 20px;
 
     h2 {
-        color: #111;
+        color: rgb(12, 9, 9);
         font-size: 26px;
         margin: 10px 0;
     }
