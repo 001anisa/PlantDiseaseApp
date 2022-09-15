@@ -3,19 +3,19 @@ import * as tf from '@tensorflow/tfjs'
 import { argMax } from '@tensorflow/tfjs';
 
 function App() {
-    const [isModelLoading, setIsModelLoading] = useState(false)
-    const [model, setModel] = useState(null)
-    const [imageURL, setImageURL] = useState(null);
-    const [results, setResults] = useState([])
-    const [history, setHistory] = useState([])
-    const disease = ['Early Blight','Late Blight','Healthy']
+    const [isModelLoading, setIsModelLoading] = useState(false) //for model loading 
+    const [model, setModel] = useState(null)   //to load the model.json file in the state variable
+    const [imageURL, setImageURL] = useState(null);  //used to upload image via url
+    const [results, setResults] = useState([])  //to output the results of the image content
+    const [history, setHistory] = useState([])  //this to maintain the recent pictures used
+    const disease = ['Early Blight','Late Blight','Healthy']   //the class of the disease
     
 
     const imageRef = useRef()
     const fileInputRef = useRef()
     const textInputRef = useRef()
 
-    const loadModel = async () => {
+    const loadModel = async () => {  //loading the model.json file 
         setIsModelLoading(true)
         try {
             const model = await tf.loadGraphModel('/models/model.json')
@@ -49,8 +49,7 @@ function App() {
         const results = await model.predict(imgData).data()
         console.log(results) 
 
-        const top3 = Array.from(results)
-          .map((item, i) => {
+        const top3 = Array.from(results).map((item, i) => {
             return {
               precision: item,
               disName: disease[i],
@@ -105,16 +104,6 @@ function App() {
                     <div className="imageHolder">
                         {imageURL && <img src={imageURL} alt="Upload Preview" crossOrigin="anonymous" ref={imageRef} />}
                     </div>
-                    {/* {results.length > 0 && <div className='resultsHolder'>
-                        {results.map((result, index) => {
-                            return (
-                                <div className='result' key={result.className}>
-                                    <span className='name'>{result.className}</span>
-                                    <span className='confidence'>Confidence level: {(result.probability * 100).toFixed(2)}% {index === 0 && <span className='bestGuess'>Best Guess</span>}</span>
-                                </div>
-                            )
-                        })}
-                    </div>} */}
                 </div>
                 {imageURL && <button className='button' onClick={identify}>Identify Image</button>}
             </div>
