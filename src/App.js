@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import * as tf from '@tensorflow/tfjs'
-import { argMax } from '@tensorflow/tfjs';
+
 
 function App() {
     const [isModelLoading, setIsModelLoading] = useState(false) //for model loading 
@@ -97,7 +97,7 @@ function App() {
                 <input type='file' accept='image/*' capture='camera' className='uploadInput' onChange={uploadImage} ref={fileInputRef} />
                 <button className='uploadImage' onClick={triggerUpload}>Upload Image</button>
                 <span className='or'>OR</span>
-                <input type="text" placeholder='Paster image URL' ref={textInputRef} onChange={handleOnChange} />
+                <input type="text" placeholder='URL' ref={textInputRef} onChange={handleOnChange} />
             </div>
             <div className="mainWrapper">
                 <div className="mainContent">
